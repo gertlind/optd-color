@@ -10,7 +10,7 @@ The script searches through all material YAML files and returns matching:
 - filament names
 - material types
 - color values
-- source YAML files
+
 
 ---
 
@@ -20,7 +20,7 @@ The script searches through all material YAML files and returns matching:
 - Optional material filter (`PETG`, `PLA`, `ABS`, etc.)
 - Reads directly from a local OpenPrintTag database
 - No database server required
-- Works locally with YAML files
+
 
 ---
 
