@@ -34,8 +34,8 @@ def load_brands():
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("color", help="Hex-färg, t.ex. 363331 eller '#363331ff'")
-    parser.add_argument("--material", help="Valfritt materialfilter, t.ex. PETG, PLA, ABS")
+    parser.add_argument("color", help="Hex-color, e.g. 363331 or '#363331ff'")
+    parser.add_argument("--material", help="Optional material filter, e.g. PETG, PLA, ABS")
     args = parser.parse_args()
 
     wanted_color = norm_hex(args.color)
@@ -75,21 +75,21 @@ def main():
 
     if not matches:
         if wanted_material:
-            print(f"Inga träffar för {wanted_color} med material {args.material}")
+            print(f"Nothing found for {wanted_color} with material {args.material}")
         else:
-            print(f"Inga träffar för {wanted_color}")
+            print(f"Nothing found for {wanted_color}")
         return
 
     if wanted_material:
-        print(f"Träffar för {wanted_color} med material {args.material}: {len(matches)}\n")
+        print(f"Found {wanted_color} with material {args.material}: {len(matches)}\n")
     else:
-        print(f"Träffar för {wanted_color}: {len(matches)}\n")
+        print(f"Found {wanted_color}: {len(matches)}\n")
 
-    print("Tillverkare:")
+    print("Manufacturer:")
     for brand in sorted(set(m["brand"] for m in matches)):
         print(f"- {brand}")
 
-    print("\nDetaljer:")
+    print("\nDetails:")
     for m in sorted(matches, key=lambda x: (x["brand"], x["name"])):
         print(f"- {m['brand']} | {m['type']} | {m['name']} | {m['color']}")
         print(f"  {m['file']}")
