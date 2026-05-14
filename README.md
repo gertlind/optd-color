@@ -25,7 +25,6 @@ The script searches through all material YAML files and returns matching:
 ---
 
 ## Example Output
-
 ```text
 Hits för #363331ff med material PETG: 3
 
