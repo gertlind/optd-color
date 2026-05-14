@@ -52,9 +52,6 @@ Details:
 git clone https://github.com/gertlind/optd-color.git
 cd optd-color
 git clone https://github.com/OpenPrintTag/openprinttag-database.git
-cd openprinttag-database
-git checkout main-pr
-cd ..
 ```
 
 ### Create virtual environment
