@@ -10,7 +10,7 @@ The script searches through all material YAML files and returns matching:
 - filament names
 - material types
 - color values
-
+- web link to the filament (It's not added for all manufacturers)
 
 ---
 
@@ -26,7 +26,9 @@ The script searches through all material YAML files and returns matching:
 
 ## Example Output
 ```text
-Hits för #363331ff med material PETG: 3
+python optd_color.py #363331ff
+
+Hits för #363331ff with material PETG: 3
 
 Found #363331ff: 3
 
