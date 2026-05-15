@@ -1,4 +1,4 @@
-# OpenPrintTag Color Search
+# OpenPrintTagDatabase Color Search
 
 Simple Python script for searching the
 [OpenPrintTag Database](https://github.com/OpenPrintTag/openprinttag-database)
