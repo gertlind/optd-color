@@ -17,7 +17,7 @@ def norm_hex(value):
     if not value.startswith("#"):
         value = "#" + value
 
-    # Om man anger RGB, gör om till RGBA med ff
+    # If RGB change to RGBA with ff
     if len(value) == 7:
         value += "ff"
 
@@ -49,25 +49,25 @@ def load_brands():
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Sök i OpenPrintTag Database efter färg, material och/eller tillverkare"
+        description="Search in OpenPrintTag database for color, material and/or brand"
     )
 
     parser.add_argument(
         "color",
         nargs="?",
-        help="Valfri HEX-färg, t.ex. 363331 eller '#363331ff'",
+        help="Choosable HEX-color, t.ex. 363331 or '#363331ff'",
     )
 
     parser.add_argument(
         "--material",
-        help="Valfritt materialfilter, t.ex. PETG, PLA, ABS",
+        help="Choosable material filter, ex. PETG, PLA, ABS...",
     )
 
     parser.add_argument(
         "--brand",
         "--manufacturer",
         dest="brand",
-        help="Valfri tillverkare, t.ex. bambulab, prusament, atomic",
+        help="Choosable manufacturer, ex. bambulab, prusament, atomic....",
     )
 
     args = parser.parse_args()
@@ -77,9 +77,9 @@ def main():
     wanted_brand = norm_text(args.brand)
 
     if not wanted_color and not wanted_material and not wanted_brand:
-        print("Ange minst en sökning: färg, --material eller --brand")
+        print("Give minimum one search: color, --material eller --brand")
         print("")
-        print("Exempel:")
+        print("Exampel:")
         print("  python3 optd_color.py 363331")
         print("  python3 optd_color.py 363331 --material PETG")
         print("  python3 optd_color.py --brand bambulab")
@@ -90,8 +90,8 @@ def main():
     matches = []
 
     if not MATERIALS_DIR.exists():
-        print(f"Hittar inte databasen: {MATERIALS_DIR}")
-        print("Kontrollera att openprinttag-database ligger bredvid scriptet.")
+        print(f"Cannot find the database: {MATERIALS_DIR}")
+        print("Check that the database folder exists")
         return
 
     for path in MATERIALS_DIR.glob("*/*.yaml"):
@@ -127,28 +127,28 @@ def main():
         })
 
     if not matches:
-        print("Inga träffar.")
+        print("Nothing found.")
         return
 
-    # Rubrik
+    # Header
     filters = []
 
     if wanted_color:
-        filters.append(f"färg {wanted_color}")
+        filters.append(f"color {wanted_color}")
 
     if wanted_material:
         filters.append(f"material {args.material}")
 
     if wanted_brand:
-        filters.append(f"tillverkare {args.brand}")
+        filters.append(f"manufacturer {args.brand}")
 
-    print(f"Träffar för {', '.join(filters)}: {len(matches)}\n")
+    print(f"Hits for {', '.join(filters)}: {len(matches)}\n")
 
-    print("Tillverkare:")
+    print("Manufactorer:")
     for brand in sorted(set(m["brand"] for m in matches)):
         print(f"- {brand}")
 
-    print("\nDetaljer:")
+    print("\nDetails:")
     for m in sorted(matches, key=lambda x: (x["brand"], x["type"], x["name"])):
         print(f"- {m['brand']} | {m['type']} | {m['name']} | {m['color']}")
         print(f"  {m['file']}")
