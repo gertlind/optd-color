@@ -111,7 +111,7 @@ def main():
         if wanted_material and material != wanted_material:
             continue
 
-        # Filter: tillverkare
+        # Filter: brand
         if wanted_brand:
             brand_search = f"{brand_slug} {brand_name}".lower()
             if wanted_brand not in brand_search:
@@ -124,6 +124,11 @@ def main():
             "type": data.get("type", ""),
             "color": color,
             "file": str(path),
+            "photo_url": (
+                data.get("photos", [{}])[0].get("url")
+                if data.get("photos")
+                else ""
+            ),
         })
 
     if not matches:
@@ -151,7 +156,9 @@ def main():
     print("\nDetails:")
     for m in sorted(matches, key=lambda x: (x["brand"], x["type"], x["name"])):
         print(f"- {m['brand']} | {m['type']} | {m['name']} | {m['color']}")
-        print(f"  {m['file']}")
+        #print(f"  {m['file']}")
+        if m["photo_url"]:
+            print(f"  Photo: {m['photo_url']}")
 
 if __name__ == "__main__":
     main()
