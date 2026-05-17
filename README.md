@@ -75,10 +75,10 @@ switches:
 -- material
 
 example:
-python optd_color.py --material PETG --brand Prusament
+python optd_color.py --material PETG --brand Prusament<br>
 Lists all PETG Prusament PETG option.
 
-python optd_color.py 363331ff -- brand Prusament
+python optd_color.py 363331ff -- brand Prusament<br>
 Lists all filament types of Prusament with color 363331ff
 
 ## Disclamer
