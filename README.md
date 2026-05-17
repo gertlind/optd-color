@@ -74,7 +74,7 @@ switches:
 -- brand
 -- material
 
-example:
+example:<br>
 python optd_color.py --material PETG --brand Prusament<br>
 Lists all PETG Prusament PETG option.
 
