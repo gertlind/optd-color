@@ -72,8 +72,7 @@ This gives the output as Example Output.
 
 ## Disclamer
 ```text
-Not all vendors have a link to the filament in the database
-Some vendors have a link to a picture of the product (I have left that out).
+Not all vendors have a link to the filament in the database.
 
 I have browsed around and looked on several diffrent filaments that comes up for the same code, its very hard to determine if it exactly the same color from out of the pictures.
 To me it feels like additions to the database is done automatic and a lot of filament is added by "looks like".
