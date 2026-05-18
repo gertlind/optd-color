@@ -85,11 +85,10 @@ Lists all filament types of Prusament with color 363331ff
 ```text
 Not all vendors have a link to the filament in the database.
 
-I have browsed around and looked on several diffrent filaments that comes up for the same code, its very hard to determine if it exactly the same color from out of the pictures.
+I have browsed around and looked on several diffrent filaments that comes up for the same code, its a bit hard to determine if it exactly the same color from out of the pictures.
 To me it feels like additions to the database is done automatic and a lot of filament is added by "looks like".
 
-The best way to find out is to browse to vendor and look if they have added the correct color code (#363331ff)
-Take it for what its worth.
+No vendor I have checked have the color code on their webpage.
 ```
 
 
