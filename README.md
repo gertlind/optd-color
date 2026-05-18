@@ -28,7 +28,7 @@ The script searches through all material YAML files and returns matching:
 ```text
 python optd_color.py #363331ff
 
-Hits för #363331ff with material PETG: 3
+Hits for color #363331ff: 3
 
 Found #363331ff: 3
 

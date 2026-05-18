@@ -124,6 +124,10 @@ def main():
             "type": data.get("type", ""),
             "color": color,
             "file": str(path),
+            "url": (data.get("product_url")
+                    or data.get("website")
+                    or data.get("url")
+                    or "" ),
             "photo_url": (
                 data.get("photos", [{}])[0].get("url")
                 if data.get("photos")
@@ -157,6 +161,8 @@ def main():
     for m in sorted(matches, key=lambda x: (x["brand"], x["type"], x["name"])):
         print(f"- {m['brand']} | {m['type']} | {m['name']} | {m['color']}")
         #print(f"  {m['file']}")
+        if m["url"]:
+            print(f"  URL: {m['url']}")
         if m["photo_url"]:
             print(f"  Photo: {m['photo_url']}")
 
